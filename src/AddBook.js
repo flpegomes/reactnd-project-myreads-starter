@@ -8,6 +8,12 @@ class AddBook extends Component {
         query:'',
         searchResults: []
     }
+    
+    componentWillReceiveProps(nextProps, prevState) {
+        if(nextProps.books !== prevState.books){
+            this.updateQuery(this.state.query)
+        }
+    }
 
     updateQuery = (value) => {
         const { query } = this.state;
@@ -78,7 +84,7 @@ class AddBook extends Component {
                     <ol className="books-grid">
                         <Book books={searchResults} moveTo={moveTo}/>
                     </ol>
-                </div>
+                    </div>
             </div>
         )
     }

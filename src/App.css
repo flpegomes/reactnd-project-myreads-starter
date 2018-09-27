@@ -103,12 +103,18 @@ body, .app {
   padding: 80px 10px 20px;
 }
 
+.search-books-container {
+  width: 90%;
+  display: block;
+}
+
 /* books grid */
 
 .books-grid {
   list-style-type: none;
   padding: 0;
   margin: 0;
+  
 
   display: flex;
   justify-content: center;
@@ -117,6 +123,7 @@ body, .app {
 .books-grid li {
   padding: 10px 15px;
   text-align: left;
+  
 }
 
 .book {
@@ -172,3 +179,4 @@ body, .app {
   text-align: center;
   font-size: 0.8em;
 }
+
