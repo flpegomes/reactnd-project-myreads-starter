@@ -19,10 +19,16 @@ class AddBook extends Component {
         if(query.length > 2) {
             BooksAPI.search(query)
             .then((resp) => {
+                let listBooks = []
+
                 resp.map((item) => {
                     const obj = {...item}
                     obj.shelf = 'none'
-                })           
+
+                    const verified = this.props.books.find((a) => a.id === obj.id)
+                    return verified ? listBooks.push(verified) : listBooks.push(obj)
+                })
+                return listBooks
             })
             .then((resp) => {
                 this.setState({
@@ -70,7 +76,7 @@ class AddBook extends Component {
                 </div>
                 <div className="search-books-results">
                     <ol className="books-grid">
-                        <Book books={searchResults} moveTo={moveTo} />
+                        <Book books={searchResults} moveTo={moveTo}/>
                     </ol>
                 </div>
             </div>

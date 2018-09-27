@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
 
 class BookChanger extends Component {
-
-
     render() {
-        const { shelf, moveTo, book } = this.props;
+        
+        const { moveTo, book } = this.props;
         return (
                 <div className="book-shelf-changer">
-                    {shelf === 'currentlyReading' && (
+                    {book.shelf === 'currentlyReading' && (
                         <select onChange={(e) => moveTo(book, e.target.value)} value="move">
                             <option value="move" disabled>Move to...</option>
                             <option value="wantToRead">Want to Read</option>
@@ -16,7 +15,7 @@ class BookChanger extends Component {
                         </select>
                     )}
 
-                    {shelf === 'read' && (
+                    {book.shelf === 'read' && (
                         <select onChange={(e) => moveTo(book, e.target.value)} value="move">
                             <option value="move" disabled>Move to...</option>
                             <option value="currentlyReading">Currently Reading</option>
@@ -25,7 +24,7 @@ class BookChanger extends Component {
                         </select>
                     )}
 
-                    {shelf === 'wantToRead' && (
+                    {book.shelf === 'wantToRead' && (
                         <select onChange={(e) => moveTo(book, e.target.value)} value="move">
                             <option value="move" disabled>Move to...</option>
                             <option value="currentlyReading">Currently Reading</option>
@@ -34,13 +33,12 @@ class BookChanger extends Component {
                         </select>
                     )}
 
-                    {shelf === undefined && (
+                    {book.shelf === 'none' && (
                         <select onChange={(e) => moveTo(book, e.target.value)} value="move">
                             <option value="move" disabled>Move to...</option>
                             <option value="currentlyReading">Currently Reading</option>
                             <option value="wantToRead">Want to Read</option>
                             <option value="read">Read</option>
-                            <option value="none">None</option>
                         </select>
                     )}
                 </div> 
