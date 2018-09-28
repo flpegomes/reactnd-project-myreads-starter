@@ -12,6 +12,7 @@ class BooksApp extends React.Component {
     books: [],
   }
 
+  //Atualiza estante dos livros
   moveTo = (book, shelf) => {
     BooksAPI.update(book, shelf)
       .then(this.getAllBooks)
@@ -26,6 +27,7 @@ class BooksApp extends React.Component {
     })
   }
   
+  //Carrega os livros que pertencem a alguma estante
   componentDidMount() {
     this.getAllBooks();
   }
